@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VYORIS Financial Intelligence{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    
+    <!-- Custom CSS (Theme variables and Academic Fonts) -->
+    <link rel="stylesheet" href="/static/styles.css">
+    
+    <!-- Tailwind Custom Config for Theme extension -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            600: 'var(--accent-color)',
+                            700: 'var(--accent-color-hover)',
+                            50: 'var(--accent-color-light)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen antialiased flex flex-col">
+    
+    <!-- Navbar / Header -->
+    <nav class="border-b border-[var(--border-color)] bg-white sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold academic-title text-[var(--accent-color)] tracking-tight">
+                            VYORIS
+                        </span>
+                        <span class="text-sm text-[var(--text-secondary)] ml-2 border-l border-[var(--border-color)] pl-2">
+                            Market Intelligence
+                        </span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="/" class="text-[var(--text-secondary)] hover:text-[var(--accent-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors">Dashboard</a>
+                        <span class="text-gray-400 px-3 py-2 text-sm font-medium">Research Mode</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Block -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-[var(--border-color)] py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-[var(--text-secondary)]">
+            <p>&copy; 2026 VYORIS Research. All rights reserved.</p>
+            <p class="mt-2 text-xs text-gray-400">Synthesizing Temporal Fusion Transformer projections with FinBERT sentiment analysis.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

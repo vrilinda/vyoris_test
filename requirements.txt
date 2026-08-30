@@ -1,0 +1,13 @@
+torch>=2.0.0
+pytorch-forecasting>=0.10.0
+transformers>=4.30.0
+mcp>=1.0.0
+fastapi>=0.100.0
+langchain>=0.1.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+yfinance>=0.2.0
+uvicorn>=0.23.0
+supabase>=2.3.0
+langchain-anthropic>=0.1.0
+requests

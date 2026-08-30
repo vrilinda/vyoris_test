@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Header Section -->
+<div class="text-center mb-12">
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl text-[var(--text-primary)] mb-4 academic-title">
+        Advanced <span class="text-forest-600">Market Intelligence</span>
+    </h1>
+    <p class="mt-4 max-w-2xl text-lg text-[var(--text-secondary)] mx-auto font-light">
+        A quantitative platform synthesizing Temporal Fusion Transformer projections with FinBERT sentiment analysis in real-time.
+    </p>
+</div>
+
+<!-- Search Form -->
+<div class="max-w-xl mx-auto bg-white rounded-xl shadow-md p-8 border border-[var(--border-color)] relative z-10 transition-shadow hover:shadow-lg">
+    <form 
+        hx-post="/htmx/analyze" 
+        hx-target="#insight-container" 
+        hx-indicator="#loading-spinner"
+        class="flex items-center space-x-4">
+        
+        <div class="relative flex-grow">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <input 
+                type="text" 
+                name="ticker" 
+                id="ticker" 
+                class="block w-full pl-11 pr-4 py-4 border border-[var(--border-color)] rounded-lg leading-5 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-forest-600 focus:border-forest-600 sm:text-lg transition duration-150 ease-in-out font-medium" 
+                placeholder="Enter Ticker (e.g. RELIANCE.NS, TSLA)" 
+                hx-get="/api/v1/search_stocks"
+                hx-trigger="keyup changed delay:300ms, search"
+                hx-target="#search-results"
+                autocomplete="off"
+                required>
+        </div>
+        
+        <button 
+            type="submit" 
+            class="btn-primary inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-forest-600">
+            Analyze
+        </button>
+    </form>
+    
+    <!-- Search Results Dropdown -->
+    <div id="search-results" class="absolute z-50 w-full mt-1 bg-white rounded-md shadow-lg max-h-60 overflow-auto"></div>
+</div>
+
+<!-- Loading Spinner -->
+<div id="loading-spinner" class="htmx-indicator mt-16 flex flex-col items-center justify-center">
+    <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-forest-600"></div>
+    <p class="mt-4 text-[var(--text-primary)] font-medium animate-pulse">Executing LangChain Agent & MCP Tools...</p>
+    <p class="text-sm text-[var(--text-secondary)] mt-1 font-light">Synthesizing data. This may take up to 30 seconds.</p>
+</div>
+
+<!-- Output Container -->
+<div id="insight-container" class="mt-12 transition-all duration-500 ease-in-out">
+    <!-- HTMX injects the insight_partial.html here -->
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+/* Google Fonts for Academic Typography */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    /* Dynamic Theme Variables - Easy to tweak! */
+    --accent-color: #2e7d32;
+    /* Forest Green */
+    --accent-color-hover: #1b5e20;
+    --accent-color-light: #e8f5e9;
+
+    --bg-primary: #f9fafb;
+    --bg-secondary: #ffffff;
+
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+
+    --border-color: #e5e7eb;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.academic-title {
+    font-family: 'Merriweather', serif;
+    color: var(--text-primary);
+}
+
+/* HTMX transition indicators */
+.htmx-indicator {
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+}
+
+.htmx-request .htmx-indicator,
+.htmx-request.htmx-indicator {
+    opacity: 1;
+}
+
+/* Custom Buttons leveraging variables */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color-hover);
+}
+
+/* Prose customizations for tables and links */
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.prose th,
+.prose td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.prose th {
+    background-color: var(--accent-color-light);
+    color: var(--accent-color-hover);
+    font-family: 'Merriweather', serif;
+    font-weight: 600;
+}
+
+.prose a {
+    color: var(--accent-color);
+}
