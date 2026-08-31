@@ -280,8 +280,8 @@ async def htmx_analyze_ticker(request: Request, ticker: str = Form(...), user = 
     
     try:
         today_str = datetime.now().strftime('%Y-%m-%d')
-        thirty_days_ago = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
-        prompt_text = f"Today's date is {today_str}. Please provide a comprehensive market forecast and sentiment analysis insight for ticker: {ticker}. For market data, use a start date of {thirty_days_ago} and an end date of {today_str}."
+        hundred_days_ago = (datetime.now() - timedelta(days=100)).strftime('%Y-%m-%d')
+        prompt_text = f"Today's date is {today_str}. Please provide a comprehensive market forecast and sentiment analysis insight for ticker: {ticker}. For market data, use a start date of {hundred_days_ago} and an end date of {today_str}."
         inputs = {"messages": [("user", prompt_text)]}
         result = await agent_executor.ainvoke(inputs)
         
