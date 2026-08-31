@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto">
+    <!-- Breadcrumb and header -->
+    <div class="mb-6 flex items-center justify-between">
+        <div>
+            <a href="/history" class="text-sm font-medium text-gray-500 hover:text-forest-600 inline-flex items-center mb-2">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                Back to History
+            </a>
+            <h1 class="text-3xl font-bold text-gray-900 academic-title flex items-center">
+                {{ search.ticker }} 
+                <span class="text-sm font-normal text-gray-500 ml-4 border-l border-gray-300 pl-4">
+                    Analyzed on {{ search.created_at[:10] }}
+                </span>
+            </h1>
+        </div>
+        
+        <!-- Favorite Toggle button -->
+        <div class="bg-white p-2 rounded-full shadow-sm border border-gray-100">
+            {% if search.is_favorite %}
+                <button hx-post="/history/toggle-favorite/{{ search.id }}" hx-vals='{"current_val": "true"}' hx-swap="outerHTML" class="focus:outline-none flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-50" title="Remove Favorite">
+                    <svg class="w-6 h-6 text-yellow-400 fill-current hover:text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </button>
+            {% else %}
+                <button hx-post="/history/toggle-favorite/{{ search.id }}" hx-vals='{"current_val": "false"}' hx-swap="outerHTML" class="focus:outline-none flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-50" title="Add to Favorites">
+                    <svg class="w-6 h-6 text-gray-300 hover:text-yellow-400 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </button>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Main Insight Content -->
+    <div class="bg-white rounded-xl shadow-md border border-[var(--border-color)] overflow-hidden">
+        <div class="p-8 prose prose-forest max-w-none prose-headings:academic-title prose-h3:text-2xl prose-h3:border-b prose-h3:pb-2 prose-table:w-full prose-th:bg-forest-50 prose-td:border-t">
+            {{ search.insight_result | safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}

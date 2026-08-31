@@ -12,6 +12,7 @@
 </div>
 
 <!-- Search Form -->
+{% if user %}
 <div class="max-w-xl mx-auto bg-white rounded-xl shadow-md p-8 border border-[var(--border-color)] relative z-10 transition-shadow hover:shadow-lg">
     <form 
         hx-post="/htmx/analyze" 
@@ -60,4 +61,13 @@
 <div id="insight-container" class="mt-12 transition-all duration-500 ease-in-out">
     <!-- HTMX injects the insight_partial.html here -->
 </div>
+{% else %}
+<div class="max-w-xl mx-auto text-center mt-12 bg-white rounded-xl shadow-sm p-10 border border-[var(--border-color)]">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Unlock Market Insights</h2>
+    <p class="text-gray-600 mb-8">Sign in or create an account to start analyzing stocks, utilizing our Temporal Fusion Transformers and FinBERT models.</p>
+    <a href="/login" class="btn-primary inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-semibold rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-forest-600 transition-colors">
+        Sign In to Search
+    </a>
+</div>
+{% endif %}
 {% endblock %}

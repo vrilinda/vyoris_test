@@ -47,6 +47,7 @@ class Settings(BaseSettings):
     )
     supabase_url: Optional[str] = Field(default=None, description="Supabase project URL")
     supabase_key: Optional[str] = Field(default=None, description="Supabase API Key")
+    supabase_service_role_key: Optional[str] = Field(default=None, description="Supabase Service Role Key for background syncs")
     
     finnhub_api_key: Optional[str] = Field(default=None, description="Finnhub API Key for sentiment")
     newsdata_api_key: Optional[str] = Field(default=None, description="NewsData.io API Key for sentiment")

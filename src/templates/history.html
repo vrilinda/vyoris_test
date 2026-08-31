@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto">
+    <div class="mb-8 flex justify-between items-end border-b border-[var(--border-color)] pb-4">
+        <div>
+            <h1 class="text-3xl font-bold text-gray-900 academic-title">Search History</h1>
+            <p class="text-gray-500 mt-1">Your saved insights and favorite analyses</p>
+        </div>
+    </div>
+
+    <!-- Favorites Section -->
+    <div class="mb-12">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+            <svg class="w-5 h-5 text-yellow-400 fill-current mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            Starred Analyses
+        </h2>
+        {% if favorites %}
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for item in favorites %}
+                <div class="bg-white border border-yellow-200 rounded-lg shadow-sm hover:shadow-md transition-shadow p-5 relative group">
+                    <div class="absolute top-4 right-4">
+                        <button hx-post="/history/toggle-favorite/{{ item.id }}" hx-vals='{"current_val": "true"}' hx-swap="outerHTML" class="focus:outline-none" title="Remove Favorite">
+                            <svg class="w-6 h-6 text-yellow-400 fill-current hover:text-gray-300 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </button>
+                    </div>
+                    <div class="text-sm text-gray-400 mb-1">{{ item.created_at[:10] }}</div>
+                    <h3 class="text-xl font-bold text-forest-700 mb-3">{{ item.ticker }}</h3>
+                    <div class="text-sm text-gray-600 line-clamp-3 mb-4">
+                        {{ item.insight_result | striptags }}
+                    </div>
+                    <a href="/history/{{ item.id }}" class="text-forest-600 hover:text-forest-800 text-sm font-medium inline-flex items-center">
+                        View Full Report 
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="bg-gray-50 border border-dashed border-gray-300 rounded-lg p-8 text-center text-gray-500">
+                You haven't starred any analyses yet.
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Recent History Section -->
+    <div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+            <svg class="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Recent Searches (Last 10)
+        </h2>
+        {% if recents %}
+            <div class="bg-white shadow overflow-hidden sm:rounded-md border border-[var(--border-color)]">
+                <ul role="list" class="divide-y divide-gray-200">
+                    {% for item in recents %}
+                    <li>
+                        <div class="px-4 py-4 sm:px-6 hover:bg-gray-50 flex items-center justify-between">
+                            <div class="min-w-0 flex-1 pr-4">
+                                <a href="/history/{{ item.id }}" class="block focus:outline-none">
+                                    <div class="flex items-center justify-between">
+                                        <p class="text-sm font-medium text-forest-600 truncate">{{ item.ticker }}</p>
+                                        <div class="ml-2 flex-shrink-0 flex">
+                                            <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
+                                                {{ item.created_at[:10] }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 sm:flex sm:justify-between">
+                                        <div class="sm:flex">
+                                            <p class="flex items-center text-sm text-gray-500 truncate max-w-xl">
+                                                {{ item.insight_result | striptags | truncate(100) }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="ml-4 flex-shrink-0">
+                                <button hx-post="/history/toggle-favorite/{{ item.id }}" hx-vals='{"current_val": "false"}' hx-swap="outerHTML" class="focus:outline-none" title="Add to Favorites">
+                                    <svg class="w-6 h-6 text-gray-300 hover:text-yellow-400 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <div class="bg-gray-50 border border-dashed border-gray-300 rounded-lg p-8 text-center text-gray-500">
+                Your recent search history is empty. <a href="/" class="text-forest-600 hover:underline">Go analyze a stock!</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

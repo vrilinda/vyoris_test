@@ -19,7 +19,12 @@ def sync_symbols_to_supabase():
         return
 
     try:
-        supabase: Client = create_client(config.supabase_url, config.supabase_key)
+        # Use service role key to bypass RLS for this background daemon, fallback to anon key
+        key_to_use = config.supabase_service_role_key or config.supabase_key
+        if not config.supabase_service_role_key:
+            logger.warning("No supabase_service_role_key found. Syncing using anon key (will fail if RLS is enabled on stock_symbols!).")
+        
+        supabase: Client = create_client(config.supabase_url, key_to_use)
         
         # Check latest timestamp
         try:

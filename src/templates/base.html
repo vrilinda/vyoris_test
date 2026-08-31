@@ -51,7 +51,12 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="/" class="text-[var(--text-secondary)] hover:text-[var(--accent-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors">Dashboard</a>
-                        <span class="text-gray-400 px-3 py-2 text-sm font-medium">Research Mode</span>
+                        {% if user %}
+                            <a href="/history" class="text-[var(--text-secondary)] hover:text-[var(--accent-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors">History</a>
+                            <a href="/auth/logout" class="text-[var(--text-secondary)] hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Logout ({{ user.email }})</a>
+                        {% else %}
+                            <a href="/login" class="text-[var(--text-secondary)] hover:text-[var(--accent-color)] px-3 py-2 rounded-md text-sm font-medium transition-colors">Login / Sign Up</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

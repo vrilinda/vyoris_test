@@ -5,7 +5,7 @@ import threading
 from typing import Dict, Any, Optional
 from datetime import datetime, timedelta
 
-from fastapi import FastAPI, HTTPException, Request, Form, Query
+from fastapi import FastAPI, HTTPException, Request, Form, Query, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -28,6 +28,9 @@ from src.mcp_server.server import (
 from src.data.sync_symbols import sync_symbols_to_supabase
 from supabase import create_client, Client
 
+from src.agents.auth_router import router as auth_router, get_current_user, require_auth, get_supabase
+from src.agents.history_router import router as history_router, enforce_history_retention
+
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger("AgentOrchestrator")
@@ -45,6 +48,10 @@ templates = Jinja2Templates(directory="src/templates")
 # Mount Static Files
 os.makedirs("src/static", exist_ok=True)
 app.mount("/static", StaticFiles(directory="src/static"), name="static")
+
+# Include Routers
+app.include_router(auth_router)
+app.include_router(history_router)
 
 try:
     from markdown_it import MarkdownIt
@@ -178,7 +185,7 @@ def startup_event():
     thread.start()
 
 @app.get("/api/v1/search_stocks", response_class=HTMLResponse)
-def search_stocks(ticker: str = Query("", description="Search query for company name or symbol")):
+async def search_stocks(request: Request, ticker: str = Query("", description="Search query for company name or symbol"), user = Depends(require_auth)):
     """
     HTMX endpoint that queries Supabase for matching stock symbols and returns an HTML list.
     """
@@ -186,7 +193,8 @@ def search_stocks(ticker: str = Query("", description="Search query for company 
         return HTMLResponse(content="")
         
     try:
-        supabase: Client = create_client(config.supabase_url, config.supabase_key)
+        token = request.cookies.get("vyoris_access_token")
+        supabase = get_supabase(token)
         # ILIKE query for company name or symbol
         res = supabase.table("stock_symbols")\
             .select("symbol, company_name")\
@@ -260,10 +268,11 @@ async def serve_dashboard(request: Request):
     """
     Serves the main HTMX Dashboard.
     """
-    return templates.TemplateResponse(request=request, name="index.html")
+    user = await get_current_user(request)
+    return templates.TemplateResponse(request=request, name="index.html", context={"user": user})
 
 @app.post("/htmx/analyze", response_class=HTMLResponse)
-async def htmx_analyze_ticker(request: Request, ticker: str = Form(...)):
+async def htmx_analyze_ticker(request: Request, ticker: str = Form(...), user = Depends(require_auth)):
     """
     HTMX endpoint that triggers the agent and returns a formatted HTML fragment.
     """
@@ -292,6 +301,21 @@ async def htmx_analyze_ticker(request: Request, ticker: str = Form(...)):
             final_insight_html = md_parser.render(final_insight)
         else:
             final_insight_html = f"<pre>{final_insight}</pre>"
+            
+        # Save to history
+        try:
+            token = request.cookies.get("vyoris_access_token")
+            supabase = get_supabase(token)
+            supabase.table("search_history").insert({
+                "user_id": user.id,
+                "ticker": ticker,
+                "insight_result": final_insight_html,
+                "is_favorite": False
+            }).execute()
+            # Enforce retention policy
+            enforce_history_retention(user.id, supabase)
+        except Exception as db_err:
+            logger.error(f"Failed to save search history: {db_err}")
             
         return templates.TemplateResponse(
             request=request,
