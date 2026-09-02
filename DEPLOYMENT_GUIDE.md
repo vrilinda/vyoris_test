@@ -81,7 +81,30 @@ During the deployment process, we encountered a few standard GCP hurdles and res
 
 ---
 
-## Part 4: How to Verify the Deployment in the GCP Portal
+## Part 4: Managing Environment Variables (Secrets / `.env`)
+
+Since we explicitly ignored the `.env` file via `.dockerignore`, your sensitive API keys and configuration variables are not in the container. You must add them directly to Cloud Run.
+
+### Option A: Via Google Cloud Console (UI)
+1. Go to **Cloud Run** and click on your **`vyoris-backend`** service.
+2. Click **Edit & Deploy New Revision** at the top.
+3. Scroll down and select the **Variables & Secrets** tab.
+4. Under **Environment variables**, click **+ Add Variable**.
+5. Add all the keys and values from your local `.env` file (e.g., Database URLs, API keys, etc.).
+6. Click **Deploy** at the bottom. The service will restart with the new variables injected.
+
+### Option B: Via `gcloud` CLI (Terminal)
+You can update environment variables directly using the terminal. This will automatically trigger a new deployment revision.
+```bash
+gcloud run services update vyoris-backend \
+    --region asia-south1 \
+    --project vyoris-507407 \
+    --update-env-vars KEY1=value1,KEY2=value2
+```
+
+---
+
+## Part 5: How to Verify the Deployment in the GCP Portal
 
 To check on your application's health, view logs, or adjust settings via the web interface:
 
@@ -96,7 +119,7 @@ To check on your application's health, view logs, or adjust settings via the web
 
 ---
 
-## Part 5: Manually Verifying Logs via CLI
+## Part 6: Manually Verifying Logs via CLI
 
 If you prefer to check logs directly from your local terminal instead of using the GCP Web Portal, you can use the `gcloud` CLI. This is incredibly helpful for quickly debugging startup issues or monitoring incoming API requests.
 
@@ -115,7 +138,7 @@ gcloud logging read "resource.type=cloud_run_revision AND resource.labels.servic
 
 ---
 
-## Part 6: Linking your GitHub Repo (`vyoris_test`) for Continuous Deployment (CI/CD)
+## Part 7: Linking your GitHub Repo (`vyoris_test`) for Continuous Deployment (CI/CD)
 
 Right now, you deployed the application manually from your local machine using `--source .`. To automate this so that every `git push` to your GitHub repository automatically deploys to Cloud Run, follow these steps:
 
