@@ -332,5 +332,6 @@ async def htmx_analyze_ticker(request: Request, ticker: str = Form(...), user = 
 
 if __name__ == "__main__":
     import uvicorn
-    logger.info(f"Starting VYORIS Agent Orchestrator on {config.mcp_server_host}:{config.mcp_server_port}")
-    uvicorn.run("src.agents.agent_orchestration:app", host=config.mcp_server_host, port=config.mcp_server_port, reload=True)
+    port = int(os.environ.get("PORT", 8080))
+    logger.info(f"Starting VYORIS Agent Orchestrator on 0.0.0.0:{port}")
+    uvicorn.run("src.agents.agent_orchestration:app", host="0.0.0.0", port=port, reload=True)
