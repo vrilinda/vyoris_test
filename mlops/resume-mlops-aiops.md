@@ -4,7 +4,7 @@ Hyderabad, India | +91 93917 24488 | [PERSONAL EMAIL - REPLACE] | linkedin.com/i
 
 ## Professional Summary
 
-MLOps / AIOps Engineer with 18 years in production application support and reliability for investment banking (prime brokerage: securities lending, margin financing, trade execution, risk reporting). Applies SRE discipline (SLOs/SLIs, observability, incident automation) to ML and AI systems. Builds and operates Python ML services (FastAPI, Flask, Streamlit), containerised with Docker, deployed through CI/CD to Azure, and exposed to LLM agents via Model Context Protocol (MCP). Completing an MSc in AI & ML (IIIT Bangalore and Liverpool John Moores University, via upGrad); final project and thesis due December 2026.
+Site Reliability and application support leader with 18 years in investment banking (prime brokerage), moving into MLOps and AIOps. Strong production background in SLOs/SLIs, observability (AppDynamics, Splunk, Grafana, Amelia AIOps), incident automation, Kubernetes/AKS and CI/CD. Currently completing an MSc in AI & ML, where I build ML and LLM systems end to end: Python services with FastAPI, ML pipelines, MCP-based agent tooling and Azure deployment. Looking to apply operations discipline to running ML models reliably in production.
 
 ## Core Skills
 
@@ -70,5 +70,7 @@ Python, FastAPI, MCP, LangChain/LangGraph, Anthropic Claude, PyTorch Forecasting
 
 ## Education
 
-- **MSc, Artificial Intelligence & Machine Learning**: IIIT Bangalore (Year 1) and Liverpool John Moores University (Year 2), via upGrad. In progress; thesis and final project due Dec 2026; degree certificate expected Feb 2027
-- **BSc, Mathematics**: Andhra University, Visakhapatnam, 2002 - 2005
+**MSc, Artificial Intelligence & Machine Learning** | IIIT Bangalore and Liverpool John Moores University (delivered via upGrad)
+Expected 2027 (final project and thesis submitted Dec 2026)
+
+**BSc, Mathematics** | Andhra University, Visakhapatnam | 2005
