@@ -73,19 +73,21 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.8rem;color:var(--muted
 <div class="grid" style="grid-template-columns:1fr">
 <article class="project">
 <h3>VYORIS, quantitative market analysis platform</h3>
-<p>MSc project. A FastAPI service where a LangChain agent calls an MCP server to pull market data, score news sentiment with FinBERT, and run Temporal Fusion Transformer forecasts for NSE/BSE stocks.</p>
-<ul class="tags"><li>Python</li><li>FastAPI</li><li>MCP</li><li>LangChain</li><li>PyTorch Forecasting</li><li>FinBERT</li><li>Supabase</li><li>Azure App Service</li><li>GitHub Actions</li></ul>
+<p>MSc project. A FastAPI service where a Claude-powered LangGraph agent combines market data, FinBERT news sentiment, forecast and model-metric tools into a briefing for NSE/BSE stocks. The same tools are also exposed through an MCP server.</p>
+<ul class="tags"><li>Python</li><li>FastAPI</li><li>MCP</li><li>LangGraph</li><li>PyTorch Forecasting</li><li>FinBERT</li><li>Supabase</li><li>Azure App Service</li><li>GitHub Actions</li></ul>
 <ul class="pts">
-<li>MCP server exposes four tools: market data, news sentiment, TFT forecast, model metrics.</li>
-<li>Data pipeline syncs the NSE symbol registry to PostgreSQL in batches, with a 24-hour freshness check and trigram search.</li>
-<li>Test suite covers look-ahead data leakage, concept drift, explainability, end-to-end latency and the MCP server.</li>
+<li>MCP server exposes four tools to any MCP client; the web agent reuses the same functions in-process.</li>
+<li>Agent prompt follows a structured framework and produces one briefing for retail readers and one for quants.</li>
+<li>FinBERT sentiment, yfinance ingestion, TFT and LSTM-baseline training and evaluation code.</li>
+<li>Supabase OTP login, per-user history with retention limits, and a background NSE symbol sync with trigram search.</li>
 <li>Deploys to Azure App Service from a GitHub Actions workflow.</li>
+<li>Status: the served forecast and metrics tools return placeholder values until a trained checkpoint is connected.</li>
 </ul>
 <pre>client / UI (HTMX)
    |
-FastAPI  -- LangChain agent (Claude)
+FastAPI  -- LangGraph agent (Claude)
    |              |
-   |         MCP server tools
+   |         tool functions (also served by MCP)
    |   market data | FinBERT sentiment | TFT forecast | metrics
    |
 Supabase (PostgreSQL, pg_trgm)</pre>
@@ -103,9 +105,9 @@ Supabase (PostgreSQL, pg_trgm)</pre>
 <section aria-labelledby="stack">
 <h2 id="stack">Stack</h2>
 <div class="grid">
-<div class="cell"><h3>MLOps</h3><p>ML pipelines, model serving, evaluation, drift and leakage tests, Docker, GitHub Actions, GitLab CI/CD</p></div>
+<div class="cell"><h3>MLOps</h3><p>ML pipelines, model serving, evaluation, dataset and drift-scenario tests, Docker, GitHub Actions, GitLab CI/CD</p></div>
 <div class="cell"><h3>AIOps and observability</h3><p>AppDynamics, Splunk, Grafana, Amelia, alerting, SLOs, incident automation</p></div>
-<div class="cell"><h3>AI and data</h3><p>PyTorch, HuggingFace, LangChain, MCP, prompt engineering, Pandas, PostgreSQL, Snowflake</p></div>
+<div class="cell"><h3>AI and data</h3><p>PyTorch, HuggingFace, LangChain/LangGraph, MCP, prompt engineering, Pandas, PostgreSQL, Snowflake</p></div>
 <div class="cell"><h3>Cloud</h3><p>Azure, AKS, Kubernetes, App Service</p></div>
 </div>
 </section>

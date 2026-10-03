@@ -8,10 +8,10 @@ MLOps / AIOps Engineer with 18 years in production application support and relia
 
 ## Core Skills
 
-- **MLOps:** ML pipelines, model packaging and serving, model evaluation, data-leakage and concept-drift testing, model maintenance via pipelines
+- **MLOps:** ML pipelines, model packaging and serving, model evaluation, dataset/leakage and drift-scenario testing, model maintenance via pipelines
 - **AIOps / Observability:** AppDynamics, Splunk, Grafana, Amelia (AIOps platform), alerting, telemetry, SLO/SLI design, incident automation
 - **Languages:** Python, Bash, SQL (PostgreSQL, Oracle PL/SQL, MSSQL, Sybase); basic Java/C# debugging
-- **ML / AI:** EDA, data engineering, PyTorch, PyTorch Forecasting (Temporal Fusion Transformer), HuggingFace Transformers (FinBERT), LangChain, LLM prompt engineering
+- **ML / AI:** EDA, data engineering, PyTorch, PyTorch Forecasting (Temporal Fusion Transformer), HuggingFace Transformers (FinBERT), LangChain/LangGraph, LLM prompt engineering
 - **Serving / Web:** FastAPI, Flask, Streamlit, Django, HTMX
 - **Agentic / MCP:** MCP server design and tool exposure, LLM tool-calling agents
 - **Cloud / DevOps:** Azure (AKS, App Service, storage), Docker, Kubernetes, GitHub Actions, GitLab CI/CD, Snowflake, ETL and batch/streaming pipelines
@@ -54,13 +54,15 @@ Oct 2018 - Mar 2023
 ## Selected AI/ML Projects
 
 ### VYORIS: Quantitative Market Analysis Platform (MSc project)
-Python, FastAPI, MCP, LangChain, Anthropic Claude, PyTorch Forecasting (TFT), FinBERT, Supabase/PostgreSQL, Azure App Service, GitHub Actions
+Python, FastAPI, MCP, LangChain/LangGraph, Anthropic Claude, PyTorch Forecasting (TFT), HuggingFace FinBERT, Supabase/PostgreSQL, HTMX, Azure App Service, GitHub Actions
 
-- Built an agentic platform for NSE/BSE stocks: a FastAPI service where a LangChain agent calls an MCP server exposing four tools (market data, news sentiment, TFT forecast, model metrics)
-- Designed the MCP server (market data, FinBERT news-sentiment scoring from -1 to +1, TFT forecasting, evaluation) so any MCP client can run the models
-- Built the data pipeline: NSE symbol registry sync to PostgreSQL (batched upserts, 24-hour freshness check), yfinance ingestion, Z-score outlier clipping and scaling
-- Added ML-specific tests: look-ahead/data-leakage, concept-drift, explainability, end-to-end latency, MCP server and pipeline tests
-- Automated build and deploy to Azure App Service with a GitHub Actions workflow
+- Built an agentic web platform for NSE/BSE stocks: a FastAPI service with a LangGraph ReAct agent (Claude) that calls four tools (market data, news sentiment, forecast, model metrics) and returns a two-audience briefing (retail and quant)
+- Built an MCP server that exposes the same four tools to any MCP client over the Model Context Protocol; the web agent reuses the tool functions in-process
+- Wrote the agent system prompt with a structured prompt framework (context, objective, ordered steps, audience, strict output format)
+- Implemented FinBERT news-sentiment scoring (confidence-weighted, -1 to +1) and data ingestion with yfinance, Z-score outlier clipping and scaling
+- Wrote TFT and LSTM-baseline training and evaluation code (RMSE, MAE, MAPE, R2, attention-weight extraction); the served forecast and metrics tools currently return placeholder values until a trained checkpoint is wired in
+- Built Supabase email-OTP authentication, per-user search history with retention limits, and a background NSE symbol sync (batched upserts, 24-hour freshness check, trigram search)
+- Added a pytest suite for the data pipeline, MCP tools, agent orchestration, latency and a market-crash scenario (March 2020); automated deploy to Azure App Service with GitHub Actions
 - Repo: github.com/vrilinda/vyoris_test
 
 ### [SECOND PROJECT - ASKI RESEARCH LABS: DETAILS PENDING]
