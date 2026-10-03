@@ -14,7 +14,6 @@ MLOps and AIOps engineer who applies 15+ years of running mission-critical inves
 - **ML / AI:** EDA, data engineering, PyTorch, PyTorch Forecasting (Temporal Fusion Transformer), HuggingFace Transformers (FinBERT), LangChain/LangGraph, LLM prompt engineering
 - **Serving / Web:** FastAPI, Flask, Streamlit, Django, HTMX
 - **Agentic / MCP:** MCP server design and tool exposure, LLM tool-calling agents
-- **Workload Automation / Orchestration:** Stonebranch, Autosys, batch scheduling and job dependency management
 - **Cloud / DevOps:** Azure (AKS, App Service, storage), Docker, Kubernetes, GitHub Actions, GitLab CI/CD, Snowflake, ETL and batch/streaming pipelines
 - **Practices:** ITIL, incident and problem management, disaster-recovery planning, dashboards and operational reporting
 
@@ -30,7 +29,6 @@ May 2025 - Present (UBS Business Solutions LLC, Mar 2023 - Apr 2025)
 - Maintained CI/CD pipelines following DevOps best practice for secure, repeatable deployments
 - Operated Kubernetes and AKS environments for containerised, cloud-native applications
 - Architected and supported data platforms on Azure storage and Snowflake: ETL pipelines, batch jobs and streaming services
-- Working on the migration of application batch scheduling from Autosys to Stonebranch, moving job orchestration to a modern workload automation platform
 - Built dashboards and reports giving stakeholders a clear view of operational health
 - Mentored engineers on SRE principles, observability and cloud application strategy; led vendor evaluations
 
