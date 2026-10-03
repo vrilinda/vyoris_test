@@ -1,6 +1,6 @@
 # Venkata Raghunadh Illinda
 
-Hyderabad, India | +91 93917 24488 | hi.villinda3@gmail.com | linkedin.com/in/askillinda | github.com/illindva72
+Hyderabad, India | +91 93917 24488 | hi.villinda3@gmail.com | linkedin.com/in/askillinda | github.com/vrilinda
 
 ## Professional Summary
 
