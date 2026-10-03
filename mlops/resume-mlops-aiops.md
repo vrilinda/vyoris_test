@@ -4,7 +4,7 @@ Hyderabad, India | +91 99121 04588 | [hi.villinda3@gmail.com](mailto:hi.villinda
 
 ## Professional Summary
 
-MLOps and AIOps engineer who applies 15+ years of running mission-critical investment banking platforms to the reliability of ML and AI systems. Hands-on in Python, Bash and SQL; builds ML services (FastAPI, Flask, Streamlit), ML pipelines and MCP-based LLM agent tooling, packaged with Docker and deployed to Azure through CI/CD. Brings production-grade monitoring and incident automation (AppDynamics, Splunk, Grafana, Amelia AIOps, SLOs/SLIs, Kubernetes/AKS) to model monitoring and drift detection. MSc in AI & ML (IIIT Bangalore and Liverpool John Moores University), expected 2027.
+MLOps and AIOps engineer who applies 18 years of running mission-critical investment banking platforms to the reliability of ML and AI systems. Hands-on in Python, Bash and SQL; builds ML services (FastAPI, Flask, Streamlit), ML pipelines and MCP-based LLM agent tooling, packaged with Docker and deployed to Azure through CI/CD. Brings production-grade monitoring and incident automation (AppDynamics, Splunk, Grafana, Amelia AIOps, SLOs/SLIs, Kubernetes/AKS) to model monitoring and drift detection. MSc in AI & ML (IIIT Bangalore and Liverpool John Moores University), expected 2027.
 
 ## Core Skills
 
