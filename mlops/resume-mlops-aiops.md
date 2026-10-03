@@ -32,7 +32,7 @@ May 2025 - Present (UBS Business Solutions LLC, Mar 2023 - Apr 2025)
 - Built dashboards and reports giving stakeholders a clear view of operational health
 - Mentored engineers on SRE principles, observability and cloud application strategy; led vendor evaluations
 
-### Authorized Officer | UBS Business Solutions LLC
+### Authorized Officer | UBS Business Solutions LLC | Nashville, TN, USA
 Oct 2018 - Mar 2023
 
 - Monitored system health and performance of trading and prime brokerage platforms, resolving issues before business impact
@@ -45,11 +45,11 @@ Oct 2018 - Mar 2023
 
 ### Earlier Roles
 
-- **Software Development Advisor**, NTT Data (formerly Dell Services), May 2016 - Sep 2018
-- **Senior Software Engineer**, NTT Data (formerly Dell Services), May 2014 - May 2016
-- **Senior Application Developer**, APAR Technologies, Sep 2013 - Mar 2014
-- **Senior Software Analyst**, Dell Perot Systems and Cognizant, Jun 2009 - Sep 2013
-- **Software Engineer**, CES India Pvt. Ltd., Sep 2008 - Jun 2009
+- **Software Development Advisor**, NTT Data (formerly Dell Services), Pune, India, May 2016 - Sep 2018
+- **Senior Software Engineer**, NTT Data (formerly Dell Services), Singapore, May 2014 - May 2016
+- **Senior Application Developer**, APAR Technologies, Singapore, Sep 2013 - Mar 2014
+- **Senior Software Analyst**, Dell Perot Systems and Cognizant, Singapore, Jun 2009 - Sep 2013
+- **Software Engineer**, CES India Pvt. Ltd., Bangalore, India, Sep 2008 - Jun 2009
 
 ## Selected AI/ML Projects
 
