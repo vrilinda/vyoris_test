@@ -4,7 +4,7 @@ Hyderabad, India | +91 93917 24488 | [PERSONAL EMAIL - REPLACE] | linkedin.com/i
 
 ## Professional Summary
 
-Site Reliability and application support leader with 18 years in investment banking (prime brokerage), moving into MLOps and AIOps. Strong production background in SLOs/SLIs, observability (AppDynamics, Splunk, Grafana, Amelia AIOps), incident automation, Kubernetes/AKS and CI/CD. Currently completing an MSc in AI & ML, where I build ML and LLM systems end to end: Python services with FastAPI, ML pipelines, MCP-based agent tooling and Azure deployment. Looking to apply operations discipline to running ML models reliably in production.
+MLOps and AIOps engineer who applies 18 years of running mission-critical investment banking platforms to the reliability of ML and AI systems. Builds Python ML services (FastAPI, Flask, Streamlit), ML pipelines and MCP-based LLM agent tooling, packaged with Docker and deployed to Azure through CI/CD. Brings production-grade monitoring and incident automation (AppDynamics, Splunk, Grafana, Amelia AIOps, SLOs/SLIs, Kubernetes/AKS) to model monitoring and drift detection. MSc in AI & ML (IIIT Bangalore and Liverpool John Moores University), expected 2027.
 
 ## Core Skills
 
