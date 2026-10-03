@@ -65,8 +65,8 @@ Python, FastAPI, MCP, LangChain/LangGraph, Anthropic Claude, PyTorch Forecasting
 - Added a pytest suite for the data pipeline, MCP tools, agent orchestration, latency and a market-crash scenario (March 2020); automated deploy to Azure App Service with GitHub Actions
 - Repo: github.com/vrilinda/vyoris_test
 
-### [SECOND PROJECT - ASKI RESEARCH LABS: DETAILS PENDING]
-- To be added once the repository contents are confirmed (see notes)
+### Other Project
+- **AskiResearchLabs:** FastAPI research-evaluation platform that pulls papers from OpenAlex, CrossRef and arXiv and uses Claude to score AI/ML topics; Python, SQLite, Plotly, JWT auth. github.com/vrilinda/AskiResearchLabs
 
 ## Education
 
