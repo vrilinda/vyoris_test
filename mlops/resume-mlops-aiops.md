@@ -1,6 +1,6 @@
 # Venkata Raghunadh Illinda
 
-Hyderabad, India | +91 99121 04588 | hi.villinda3@gmail.com | linkedin.com/in/askillinda | github.com/vrilinda
+Hyderabad, India | +91 99121 04588 | [hi.villinda3@gmail.com](mailto:hi.villinda3@gmail.com) | [linkedin.com/in/askillinda](https://www.linkedin.com/in/askillinda/) | [github.com/vrilinda](https://github.com/vrilinda)
 
 ## Professional Summary
 
@@ -63,10 +63,10 @@ Python, FastAPI, MCP, LangChain/LangGraph, Anthropic Claude, PyTorch Forecasting
 - Wrote TFT and LSTM-baseline training and evaluation code (RMSE, MAE, MAPE, R2, attention-weight extraction); the served forecast and metrics tools currently return placeholder values until a trained checkpoint is wired in
 - Built Supabase email-OTP authentication, per-user search history with retention limits, and a background NSE symbol sync (batched upserts, 24-hour freshness check, trigram search)
 - Added a pytest suite for the data pipeline, MCP tools, agent orchestration, latency and a market-crash scenario (March 2020); automated deploy to Azure App Service with GitHub Actions
-- Repo: github.com/vrilinda/vyoris_test
+- Repo: [github.com/vrilinda/vyoris_test](https://github.com/vrilinda/vyoris_test)
 
 ### Other Project
-- **AskiResearchLabs:** FastAPI research-evaluation platform that pulls papers from OpenAlex, CrossRef and arXiv and uses Claude to score AI/ML topics; Python, SQLite, Plotly, JWT auth. github.com/vrilinda/AskiResearchLabs
+- **AskiResearchLabs:** FastAPI research-evaluation platform that pulls papers from OpenAlex, CrossRef and arXiv and uses Claude to score AI/ML topics; Python, SQLite, Plotly, JWT auth. [github.com/vrilinda/AskiResearchLabs](https://github.com/vrilinda/AskiResearchLabs)
 
 ## Education
 
