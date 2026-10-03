@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raghunadh Illinda | MLOps and AIOps Engineer</title>
+<meta name="description" content="MLOps and AIOps engineer with 18 years of production reliability in investment banking.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: runbook-style single column with a status strip; sections read like ops documents. */
+:root{--bg:#f3f5f4;--fg:#16201d;--muted:#55635e;--line:#cfd8d4;--panel:#ffffff;--accent:#0b6b5c;--warn:#9a5b00;
+--display:"Source Serif 4",Georgia,serif;--body:"Source Sans 3",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1715;--fg:#e4ede9;--muted:#9bada6;--line:#2a3a35;--panel:#16211e;--accent:#4fc3ad;--warn:#e0a54a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1715;--fg:#e4ede9;--muted:#9bada6;--line:#2a3a35;--panel:#16211e;--accent:#4fc3ad;--warn:#e0a54a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 var(--body)}
+.wrap{max-width:860px;margin:0 auto;padding:2rem 1rem 4rem}
+h1,h2,h3{font-family:var(--display);line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,6vw,3rem)}
+h2{font-size:1.5rem;margin-bottom:1rem;padding-top:2.5rem}
+h3{font-size:1.15rem}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.role{font-family:var(--mono);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 .75rem}
+.lede{max-width:65ch;color:var(--muted);margin:1rem 0 0}
+.strip{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:1.5rem;padding:.75rem 1rem;border:1px solid var(--line);background:var(--panel);font-family:var(--mono);font-size:.8rem}
+.strip span{min-width:0}
+.strip b{font-weight:500;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.cell{border:1px solid var(--line);background:var(--panel);padding:1rem}
+.cell h3{font-size:1rem;margin-bottom:.4rem}
+.cell p{margin:0;color:var(--muted);font-size:.95rem}
+.project{border:1px solid var(--line);background:var(--panel);padding:1.25rem;display:grid;gap:.75rem;min-width:0}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:0}
+.tags li{font-family:var(--mono);font-size:.75rem;border:1px solid var(--line);padding:.1rem .5rem}
+.project ul.pts{margin:0;padding-left:1.2rem}
+.pending{border-style:dashed}
+.pending .flag{font-family:var(--mono);font-size:.75rem;color:var(--warn)}
+pre{margin:0;overflow-x:auto;padding:1rem;border:1px solid var(--line);background:var(--panel);font:.8rem/1.5 var(--mono)}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.timeline li{display:grid;grid-template-columns:9rem 1fr;gap:1rem;border-top:1px solid var(--line);padding-top:.5rem}
+.timeline time{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+@media (max-width:520px){.timeline li{grid-template-columns:1fr;gap:.1rem}}
+footer{margin-top:3rem;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header>
+<p class="role">MLOps / AIOps Engineer</p>
+<h1>Venkata Raghunadh Illinda</h1>
+<p class="lede">I spent 18 years keeping prime brokerage platforms running at a global investment bank. Now I build and operate the ML and LLM systems that sit on top of that kind of infrastructure: pipelines, model services, monitoring and agent tooling.</p>
+<div class="strip" role="list">
+<span role="listitem"><b>Experience</b> 18 yrs</span>
+<span role="listitem"><b>Domain</b> Investment banking</span>
+<span role="listitem"><b>Base</b> Hyderabad, India</span>
+<span role="listitem"><b>MSc AI &amp; ML</b> thesis due Dec 2026</span>
+</div>
+</header>
+
+<section aria-labelledby="edge">
+<h2 id="edge">Why operations experience matters for ML</h2>
+<div class="grid">
+<div class="cell"><h3>Reliability first</h3><p>SLO and SLI design, incident automation and ITIL practice applied to services that must stay up.</p></div>
+<div class="cell"><h3>Observability tooling</h3><p>AppDynamics, Splunk, Grafana and Amelia (AIOps) in production; migrating monitoring stacks.</p></div>
+<div class="cell"><h3>Platform operations</h3><p>Kubernetes and AKS, CI/CD, Azure storage, Snowflake, ETL, batch and streaming jobs.</p></div>
+<div class="cell"><h3>ML engineering</h3><p>EDA, model building, evaluation and pipelines in Python, with FastAPI, Flask and Streamlit services.</p></div>
+</div>
+</section>
+
+<section aria-labelledby="projects">
+<h2 id="projects">Projects</h2>
+<div class="grid" style="grid-template-columns:1fr">
+<article class="project">
+<h3>VYORIS, quantitative market analysis platform</h3>
+<p>MSc project. A FastAPI service where a LangChain agent calls an MCP server to pull market data, score news sentiment with FinBERT, and run Temporal Fusion Transformer forecasts for NSE/BSE stocks.</p>
+<ul class="tags"><li>Python</li><li>FastAPI</li><li>MCP</li><li>LangChain</li><li>PyTorch Forecasting</li><li>FinBERT</li><li>Supabase</li><li>Azure App Service</li><li>GitHub Actions</li></ul>
+<ul class="pts">
+<li>MCP server exposes four tools: market data, news sentiment, TFT forecast, model metrics.</li>
+<li>Data pipeline syncs the NSE symbol registry to PostgreSQL in batches, with a 24-hour freshness check and trigram search.</li>
+<li>Test suite covers look-ahead data leakage, concept drift, explainability, end-to-end latency and the MCP server.</li>
+<li>Deploys to Azure App Service from a GitHub Actions workflow.</li>
+</ul>
+<pre>client / UI (HTMX)
+   |
+FastAPI  -- LangChain agent (Claude)
+   |              |
+   |         MCP server tools
+   |   market data | FinBERT sentiment | TFT forecast | metrics
+   |
+Supabase (PostgreSQL, pg_trgm)</pre>
+<a href="https://github.com/vrilinda/vyoris_test">github.com/vrilinda/vyoris_test</a>
+</article>
+
+<article class="project pending">
+<h3>AskiResearchLabs</h3>
+<p class="flag">PLACEHOLDER: repository could not be read from this session. Replace with its real summary.</p>
+<a href="https://github.com/illindva72/AskiResearchLabs">github.com/illindva72/AskiResearchLabs</a>
+</article>
+</div>
+</section>
+
+<section aria-labelledby="stack">
+<h2 id="stack">Stack</h2>
+<div class="grid">
+<div class="cell"><h3>MLOps</h3><p>ML pipelines, model serving, evaluation, drift and leakage tests, Docker, GitHub Actions, GitLab CI/CD</p></div>
+<div class="cell"><h3>AIOps and observability</h3><p>AppDynamics, Splunk, Grafana, Amelia, alerting, SLOs, incident automation</p></div>
+<div class="cell"><h3>AI and data</h3><p>PyTorch, HuggingFace, LangChain, MCP, prompt engineering, Pandas, PostgreSQL, Snowflake</p></div>
+<div class="cell"><h3>Cloud</h3><p>Azure, AKS, Kubernetes, App Service</p></div>
+</div>
+</section>
+
+<section aria-labelledby="path">
+<h2 id="path">Career and study</h2>
+<ol class="timeline">
+<li><time>2023 - now</time><span>Associate Director, UBS Business Solutions. SRE, observability and CI/CD for prime brokerage applications.</span></li>
+<li><time>2018 - 2023</time><span>Authorized Officer, UBS Business Solutions. Monitoring, automation, incident management.</span></li>
+<li><time>2008 - 2018</time><span>Engineer to Software Development Advisor across Dell Services/NTT Data, Cognizant and others.</span></li>
+<li><time>2024 - 2027</time><span>MSc AI &amp; ML, IIIT Bangalore and Liverpool John Moores University via upGrad. Certificate expected Feb 2027.</span></li>
+</ol>
+</section>
+
+<footer>
+<p>LinkedIn: linkedin.com/in/askillinda | GitHub: github.com/illindva72 | Email: [ADD PERSONAL EMAIL]</p>
+</footer>
+</main>
+</body>
+</html>
