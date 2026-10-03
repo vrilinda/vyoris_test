@@ -22,14 +22,14 @@ MLOps and AIOps engineer who applies 15+ years of running mission-critical inves
 ### Associate Director | UBS Business Solutions, Hyderabad
 May 2025 - Present (UBS Business Solutions LLC, Mar 2023 - Apr 2025)
 
-- Led technical teams supporting enterprise-scale prime brokerage applications in investment banking
-- Implemented SRE practices across cloud and on-premises applications; defined and monitored SLOs and SLIs for availability and performance
-- Deployed observability, alerting and telemetry using AppDynamics and Splunk; leading the migration to Grafana and Amelia (AIOps)
-- Automated incident-management workflows to cut response and resolution times on critical issues
-- Maintained CI/CD pipelines following DevOps best practice for secure, repeatable deployments
-- Operated Kubernetes and AKS environments for containerised, cloud-native applications
+- Led a team of 6 engineers supporting 40+ securities lending (stock borrow/loan) applications in investment banking
+- Automated incident-management workflows for 22 applications, cutting mean time to resolve from 30 to 10 minutes
+- Reduced alert noise by 35% by tuning thresholds and consolidating 250 alerts across AppDynamics and Splunk
+- Defined SLOs and SLIs, with availability reporting, for 3 business-critical services rebuilt on new platforms; applied SRE practices across cloud and on-premises applications
+- Built 5 Grafana (LGTM stack) dashboards used daily by application and business stakeholders; leading the migration of monitoring to Grafana and Amelia (AIOps)
+- Operated AKS workloads for 2 applications rebuilt on the new platform
+- Maintained CI/CD pipelines for bi-weekly sprint releases, reducing failed deployments by 5%
 - Architected and supported data platforms on Azure storage and Snowflake: ETL pipelines, batch jobs and streaming services
-- Built dashboards and reports giving stakeholders a clear view of operational health
 - Mentored engineers on SRE principles, observability and cloud application strategy; led vendor evaluations
 
 ### Authorized Officer | UBS Business Solutions LLC | Nashville, TN, USA
